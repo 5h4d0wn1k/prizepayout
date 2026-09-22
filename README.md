@@ -1,50 +1,55 @@
-# React + TypeScript + Vite
+# PrizePayout
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prize payout and winner-management platform — a marketing portal that walks winners from ticket verification through a secure prize claim, with animated landing pages, payout statistics, and a searchable winners wall.
 
-Currently, two official plugins are available:
+![Stars](https://img.shields.io/github/stars/5h4d0wn1k/prizepayout)
+![Last commit](https://img.shields.io/github/last-commit/5h4d0wn1k/prizepayout)
+![Issues](https://img.shields.io/github/issues/5h4d0wn1k/prizepayout)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+PrizePayout is a **React + TypeScript + Vite** single-page application (Tailwind CSS design system) that presents the complete winner journey: a hero landing page, step-by-step claim instructions, payout statistics, testimonials, a filterable winners wall, legal pages, and a claim form UI — all statically shareable and deployable anywhere.
 
-## Expanding the ESLint configuration
+## Why PrizePayout
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Prize programs live and die on trust. PrizePayout turns the claim experience into a clear, confidence-building funnel: prove legitimate payouts with public stats and a winners wall, explain the verification documents up front, and route claimants to a dedicated, secure claim page. The stack is intentionally lightweight (SPA + Vite) so the site can be hosted almost anywhere or exported for a CMS-driven flow.
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Animated landing page** — `Hero`, `QuickStats`, `WinnerShowcase`, and `Testimonials` sections with `framer-motion` scroll effects
+- **Winners Wall** (`/winners`) — searchable, filterable winner cards (region, prize range, timeframe) built on a `swiper` carousel
+- **Payout statistics** (`/stats`) — monthly payout line/bar charts powered by `chart.js` + `react-chartjs-2`
+- **Claim flow** (`/claim`) — dedicated secure claim form page with trust badges
+- **How it works** (`/how-it-works`) — four-step ticket-verification process and an FAQ accordion
+- **Supporting pages** — About, Contact, Media, and Legal routed with `react-router-dom` v6
+- **Design system** — Tailwind CSS with a custom brand palette, `framer-motion` micro-interactions, and Montserrat / Open Sans fonts
+- **TypeScript everywhere** — strict `tsc` build as part of `npm run build`
+
+## Quickstart
+
+Prerequisites: Node.js 18+ and npm.
+
+```bash
+npm install
+npm run dev          # start the Vite dev server
+npm run build        # type-check (tsc) + production build to dist/
+npm run lint         # ESLint over src (max 0 warnings)
+npm run preview      # preview the production build locally
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Project structure
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+src/
+├── components/      # Hero, QuickStats, WinnerCards, Testimonials, ProcessSteps, FAQ, Navbar, Footer ...
+├── pages/           # Home, WinnersWall, PayoutStats, HowItWorks, ClaimPrize, About, Contact, Media, Legal
+└── router.tsx       # createBrowserRouter route table
+public/winners/      # winner asset placeholders
+public/proof/        # payout-proof asset placeholders
+```
+
+## Contributing
+
+Contributions are welcome. Open an issue or pull request for new sections, better accessibility, or localization support.
+
+## License
+
+No license file is present in this repository. All rights are reserved by the author until a license is explicitly added.
