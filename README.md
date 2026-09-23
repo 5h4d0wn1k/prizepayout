@@ -52,4 +52,5 @@ Contributions are welcome. Open an issue or pull request for new sections, bette
 
 ## License
 
-No license file is present in this repository. All rights are reserved by the author until a license is explicitly added.
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
